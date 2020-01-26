@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+.spacing {
+  height:60px;
+}
+
+main {
+  margin-top: 10px;
+}
+
+.main-wrapper {
+  height: 300px;
+}
+
+.main-wrapper h2 {
+  font-size: 45px;
+  padding-top: 160px;
+  text-align: center;
+  color: white;
+  opacity: 0.7;
+  font-family: 'Bowlby One SC', cursive;
+}
+
+
+
