@@ -12,13 +12,13 @@
             @if (Auth::check())
             <li class="nav-item">{!! link_to_route('top', 'マイページ', [], ['class' => 'menu-list nav-link',]) !!}</li>
             <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'menu-list nav-link',]) !!}</li>
+            <li class="nav-item">{!! link_to_route('communities.index', 'コミュニティ一覧', [], ['class' => 'menu-list nav-link',]) !!}</li>
+            <li class="nav-item">{!! link_to_route('communities.index', 'フレンド一覧', [], ['class' => 'menu-list nav-link',]) !!}</li>
             @else
             <li class="nav-item">{!! link_to_route('top', 'トップページ', [], ['class' => 'menu-list nav-link',]) !!}</li>
             <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'menu-list nav-link',]) !!}</li>
             @endif
-            
-            <li class="nav-item"><a class="menu-list nav-link" href = "#">コミュニティ一覧</a></li>
-            <li class="nav-item"><a class="menu-list nav-link" href = "#">フレンド一覧</a></li>
+
           </ul>
         </div>
       </nav>

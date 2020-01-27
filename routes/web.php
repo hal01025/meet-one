@@ -24,3 +24,15 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+
+//コミュニティ操作関連
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('communities', 'CommunityController@index');
+    Route::resource('communities', 'CommunityController');
+});
+
+//フレンド操作関連
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('friends', 'FriendController@index');
+    Route::resource('friends', 'FriendController');
+});

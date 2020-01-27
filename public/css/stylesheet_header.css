@@ -49,12 +49,10 @@ p {
 }
 
 .menu-list {
-  color: white;
+  font-weight: 700;
 }
 
-.nav-item {
-  display:inline;
-}
+
 
 i {
   display:inline;
