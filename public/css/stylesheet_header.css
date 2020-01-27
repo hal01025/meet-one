@@ -48,6 +48,14 @@ p {
   padding:0;
 }
 
-.header-list a {
+.menu-list {
   color: white;
+}
+
+.nav-item {
+  display:inline;
+}
+
+i {
+  display:inline;
 }

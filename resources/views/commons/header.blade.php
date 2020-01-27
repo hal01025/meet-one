@@ -9,10 +9,16 @@
         </button>
         <div class="header-list navbar-collapse collapse" id ="nav-bar">
           <ul class="navbar-nav">
-            <li class="nav-item"><a class="menu-list nav-link" href = "#"><span class="fas fa-sign-in-alt"></span>ログイン</a></li>
-            <li class="nav-item"><a class="menu-list nav-link" href = "#"><span class="fas fa-search"></span>コミュニティ検索</a></li>
-            <li class="nav-item"><a class="menu-list nav-link" href = "#"><span class="fas fa-comments"></span>コミュニティ一覧</a></li>
-            <li class="nav-item"><a class="menu-list nav-link" href = "#"><span class="fas fa-user-friends"></span>フレンド一覧</a></li>
+            @if (Auth::check())
+            <li class="nav-item">{!! link_to_route('top', 'マイページ', [], ['class' => 'menu-list nav-link',]) !!}</li>
+            <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'menu-list nav-link',]) !!}</li>
+            @else
+            <li class="nav-item">{!! link_to_route('top', 'トップページ', [], ['class' => 'menu-list nav-link',]) !!}</li>
+            <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'menu-list nav-link',]) !!}</li>
+            @endif
+            
+            <li class="nav-item"><a class="menu-list nav-link" href = "#">コミュニティ一覧</a></li>
+            <li class="nav-item"><a class="menu-list nav-link" href = "#">フレンド一覧</a></li>
           </ul>
         </div>
       </nav>

@@ -8,9 +8,9 @@
         
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="menu-list nav-link" href="#"><span class="fas fa-sticky-note"></span>コミュニティ作成</a></li>
-                <li class="nav-item"><a class="menu-list nav-link" href="#"><span class="fas fa-search"></span>フレンド検索</a></li>
-                <li class="nav-item"><a class="menu-list nav-link" href="#"><span class="fas fa-comments"></span>お知らせ</a></li>
+                <li class="nav-item"><a class="menu-list nav-link" href="#">コミュニティ作成</a></li>
+                <li class="nav-item"><a class="menu-list nav-link" href="#">フレンド検索</a></li>
+                <li class="nav-item"><a class="menu-list nav-link" href="#">お知らせ</a></li>
             </ul>
         </div>
     </nav>

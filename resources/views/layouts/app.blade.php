@@ -14,9 +14,16 @@
             <link rel="stylesheet" href ="css/stylesheet_main.css">
             <link rel="stylesheet" href ="css/stylesheet_nav.css">
             <link rel="stylesheet" href ="css/stylesheet_header.css">
+            <link rel="stylesheet" href ="css/stylesheet_welcome.css">
         </head>
         
-
+        <style>
+            .content-wrapper {
+                background-color:rgba(100,100,100,0.2);
+                margin-top: 5px;
+                border-radius:5px;
+            }
+        </style>
         
         <body>
             @include("commons.header")
@@ -25,10 +32,10 @@
             <div class="container">
                 @include("commons.main")
                 @include("commons.nav")
-            </div>
             
-            <div class="container">    
-                @yield("content")
+                <div class="container content-wrapper">    
+                    @yield("content")
+                </div>
             </div>
             
             @include("commons.footer")
