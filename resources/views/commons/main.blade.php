@@ -1,6 +1,6 @@
 <style>
     .main-wrapper {
-        background-image: url(images/children-817365_1920.1.jpg);
+        background-image: url({{ secure_asset('images/children-817365_1920.1.jpg') }});
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center top;

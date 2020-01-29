@@ -2,7 +2,7 @@
     <div class="header-container">
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="header-wrapper">
-          <a href="#" class="navbar-brand"><img class="header-logo" src="images/hedgehog-2418210_1280.png">Meet-one.</a>
+          <a href="#" class="navbar-brand"><img class="header-logo" src="{{ secure_asset('images/hedgehog-2418210_1280.png') }}">Meet-one.</a>
         </div>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
         <span class="navbar-toggler-icon"></span>
@@ -10,13 +10,13 @@
         <div class="header-list navbar-collapse collapse" id ="nav-bar">
           <ul class="navbar-nav">
             @if (Auth::check())
-            <li class="nav-item">{!! link_to_route('top', 'マイページ', [], ['class' => 'menu-list nav-link',]) !!}</li>
-            <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'menu-list nav-link',]) !!}</li>
-            <li class="nav-item">{!! link_to_route('communities.index', 'コミュニティ一覧', [], ['class' => 'menu-list nav-link',]) !!}</li>
-            <li class="nav-item">{!! link_to_route('communities.index', 'フレンド一覧', [], ['class' => 'menu-list nav-link',]) !!}</li>
+            <li class="nav-item"><a href="{{ route('top',[]) }}" class="nav-link menu-list"><i class="fas fa-home"></i>マイページ</a></li>
+            <li class="nav-item"><a href="{{ route('logout.get',[]) }}" class="nav-link menu-list"><i class="fas fa-sign-in-alt"></i>ログアウト</a></li>
+            <li class="nav-item"><a href="{{ route('communities.index',[]) }}" class="nav-link menu-list"><i class="fas fa-comments"></i>コミュニティ一覧</a></li>
+            <li class="nav-item"><a href="{{ route('communities.index',[]) }}" class="nav-link menu-list"><i class="fas fa-user-friends"></i>フレンド一覧</a></li>
             @else
-            <li class="nav-item">{!! link_to_route('top', 'トップページ', [], ['class' => 'menu-list nav-link',]) !!}</li>
-            <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'menu-list nav-link',]) !!}</li>
+            <li class="nav-item"><a href="{{ route('top',[]) }}" class="nav-link menu-list"><i class="fas fa-play"></i>トップページ</a></li>
+            <li class="nav-item"><a href="{{ route('login',[]) }}" class="nav-link menu-list"><i class="fas fa-pen"></i>ログイン</a></li>
             @endif
 
           </ul>

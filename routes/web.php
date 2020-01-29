@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('top');
+Route::get('/', 'TopController@index')->name('top');
 
 
 // ユーザ登録
@@ -31,8 +29,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('communities', 'CommunityController');
 });
 
-//フレンド操作関連
+
+//フレンド登録関連
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('friends', 'FriendController@index');
-    Route::resource('friends', 'FriendController');
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    
+     Route::group(['prefix' => 'users/{id}'], function () {
+        Route::post('action', 'FriendactionController@store')->name('user.follow');
+        Route::delete('unaction', 'FriendactionController@destroy')->name('user.unfollow');
+        Route::get('friend', 'UsersController@followings')->name('users.followings');
+        Route::get('', 'UsersController@followers')->name('users.followers');
+    });
 });

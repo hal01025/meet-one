@@ -15,7 +15,7 @@ class CommunityController extends Controller
      */
     public function index()
     {
-        $communities = Community::paginate(10);
+        $communities = Community::orderBy('id', 'desc')->paginate(10);
         
         return view('communities.index', ['communities' => $communities, ]);
     }
@@ -27,7 +27,10 @@ class CommunityController extends Controller
      */
     public function create()
     {
-        //
+        $community = new Community;
+        
+        return view('communities.create', ['community' => $community]);
+        
     }
 
     /**
@@ -38,7 +41,13 @@ class CommunityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $community = new Community;
+        $community->name = $request->name;
+        $community->description = $request->description;
+        
+        $community->save();
+        
+        return redirect('/');
     }
 
     /**
@@ -49,7 +58,10 @@ class CommunityController extends Controller
      */
     public function show($id)
     {
-        //
+        $community = Community::find($id);
+        
+        return view('communities.show', ['community' => $community]);
+        
     }
 
     /**

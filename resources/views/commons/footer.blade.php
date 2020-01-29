@@ -11,9 +11,9 @@
                 
             <div class = "footer-list collapse navbar-collapse" id="nav-bar">
                 <ul class="navbar-nav footer-list">
-                    <li><a href="#">会社情報</a></li>
-                    <li><a href="#">プライバシーポリシー</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">アプリ概要</a></li>
+                    <li><a href="#">アプリの使い方</a></li>
+                    <li><a href="#">おわりに</a></li>
                 </ul>
             </div>
         </nav>
