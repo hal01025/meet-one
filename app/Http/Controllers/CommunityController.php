@@ -41,6 +41,8 @@ class CommunityController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, ['name' => 'required|max:191', 'description' => 'required|max:191']);
+        
         $community = new Community;
         $community->name = $request->name;
         $community->description = $request->description;

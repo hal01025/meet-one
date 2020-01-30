@@ -7,9 +7,13 @@
 <div class="container">
     
     @foreach ($communities as $community)
-        <h3 class="text-center"><a href="{{ route('communities.show', ['id' => $community->id]) }}">{{ $community->name }}</a></h3>
-        <p class="text-center">{{ $community->description }}</p>
+        <p class="text-center">コミュニティ名: <a href="{{ route('communities.show', ['id' => $community->id]) }}">{{ $community->name }}</a></p>
+        <p class="text-center">コミュニティ概要: {{ $community->description }}</p>
     @endforeach
 
 </div>
+<div class="container text-center">
+    {{ $communities->links('pagination::bootstrap-4') }}
+</div>
+
 @endsection

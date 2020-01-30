@@ -12,9 +12,10 @@ class TopController extends Controller
 {
     public function index() 
     {
-        $friends = User::orderBy('id', 'desc')->paginate(5);
+        $followings = \Auth::user()->followings()->orderBy('id', 'desc')->paginate(5);
+        $followers = \Auth::user()->followers()->orderBy('id', 'desc')->paginate(5);
         $communities = Community::orderBy('id', 'desc')->paginate(5);
         
-        return view('welcome', ['friends' => $friends, 'communities' => $communities]);
+        return view('welcome', ['followings' => $followings, 'followers' => $followers,'communities' => $communities]);
     }
 }

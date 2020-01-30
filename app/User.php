@@ -27,6 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
+//ユーザー対ユーザー
+
     public function followers()
     {
         return $this->belongsToMany(User::class, 'friendactions','action_id', 'user_id');
@@ -47,6 +49,7 @@ class User extends Authenticatable
         }
         else {
             $this->followings()->attach($userId);
+            $this->counter += 1;
             return true;
             
         }
@@ -71,4 +74,44 @@ class User extends Authenticatable
         return $this->followings()->where('action_id', $userId)->exists();
         
     }
+
+
+//コミュニティ対ユーザー
+     public function communities ()
+    {
+        return $this->belongsToMany(Community::class, 'join_community', 'user_id', 'community_id');
+    }
+    
+    public function join($userId)
+    {
+
+        $exist = $this->is_joining($userId);
+
+        if ($exist) {
+            return false;
+        } else {
+            $this->communities()->attach($userId);
+            return true;
+        }
+    }
+    
+    public function unjoin($userId)
+    {
+
+        $exist = $this->is_joiing($userId);
+
+        if ($exist) {
+            
+            $this->communities()->detach($userId);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public function is_joining($userId)
+    {
+        return $this->communities()->where('community_id', $userId)->exists();
+    }
+    
 }

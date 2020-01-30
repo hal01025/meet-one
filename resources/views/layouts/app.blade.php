@@ -26,6 +26,10 @@
         
         <body>
             @include("commons.header")
+            
+            <div class="spacing">
+            </div>
+            
             @include("commons.error_messages")
             
             <div class="container">

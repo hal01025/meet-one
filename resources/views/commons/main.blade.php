@@ -8,10 +8,6 @@
     }
 </style>
 
-<div class="spacing">
-    
-</div>
-
 <main>
     <div class="main-wrapper">
         <h2>Let's make a friend!</h2>

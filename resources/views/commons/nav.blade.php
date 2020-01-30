@@ -10,9 +10,8 @@
         
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="menu-list nav-link" href="{{ route('communities.create', []) }}"><i class="fas fa-plus"></i>コミュニティ作成</a></li>
-                <li class="nav-item"><a class="menu-list nav-link" href="#"><i class="fas fa-search"></i>コミュニティ検索</a></li>
-                <li class="nav-item"><a class="menu-list nav-link" href="#"><i class="fas fa-search"></i>ユーザー検索</a></li>
+                <li class="nav-item"><a href="{{ route('followerlists.index',[]) }}" class="nav-link menu-list"><i class="fas fa-user-friends"></i>フォロワー</a></li>
+                <li class="nav-item"><a href="{{ route('followinglists.index',[]) }}" class="nav-link menu-list"><i class="fas fa-user-friends"></i>フォロー</a></li>
                 <li class="nav-item"><a class="menu-list nav-link" href="#"><i class="fas fa-info-circle"></i>お知らせ</a></li>
             </ul>
         </div>

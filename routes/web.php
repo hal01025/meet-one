@@ -32,12 +32,13 @@ Route::group(['middleware' => ['auth']], function () {
 
 //フレンド登録関連
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    Route::resource('followerlists', 'FolloweractionController', ['only' => ['index', 'show']]);
+    Route::resource('followinglists', 'FollowingactionController', ['only' => ['index', 'show']]);
     
-     Route::group(['prefix' => 'users/{id}'], function () {
+    /*Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('action', 'FriendactionController@store')->name('user.follow');
         Route::delete('unaction', 'FriendactionController@destroy')->name('user.unfollow');
-        Route::get('friend', 'UsersController@followings')->name('users.followings');
-        Route::get('', 'UsersController@followers')->name('users.followers');
-    });
+        Route::get('friend', 'FriendactionController@followings')->name('users.followings');
+        Route::get('', 'FriendactionController@followers')->name('users.followers');
+    });*/
 });

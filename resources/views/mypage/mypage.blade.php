@@ -4,11 +4,17 @@
               <h3 class="greetings">ようこそ！</h3>
               <p class="user-name">{{ Auth::user()->name}} <span>さん</span></p>
                 <h3 class = "nav-name">フレンドリスト</h3>
-                <p class = "nav-para">あなたの登録したフレンドは{{1}}名です</p>
+                <p class = "nav-para">あなたの登録したフレンドは{{Auth::user()->counter}}名です</p>
+                <!--<p class = "nav-para">あなたを登録したフレンドは{{Auth::user()->counter}}名です</p>-->
                 
                 <ul class = "friend-list">
-                  @foreach ($friends as $friend)
-                    <li><a href="#" class="friend-name">{{ $friend->name }}<span> さん</span></a></li>
+                  <p>あなたが登録したフレンド</p>
+                  @foreach ($followings as $following)
+                    <li><a href="{{ route('followinglists.show', ['id' => $following->id ]) }}" class="friend-name">{{ $following->name }}<span> さん</span></a></li>
+                  @endforeach
+                  <p>あなたを登録したフレンド</p>
+                  @foreach ($followers as $follower)
+                    <li><a href="{{ route('followerlists.show', ['id' => $follower->id ]) }}" class="friend-name">{{ $follower->name }}<span> さん</span></a></li>
                   @endforeach
                 </ul>
               </div>
@@ -18,7 +24,7 @@
             <div class = "article-container">
               <div class = "article-wrapper">
                 <!--<img src = "images/keyboard-690066_1920.jpg" class = "article-image">-->
-                <h3 class="article-name">コミュニティ一覧</h3>
+                <h3 class="article-name">新着コミュニティ一覧</h3>
                 <div class = "form-wrapper">  
                   <div class="search-box">
                     <form class="search-form" action="form.php" method="post">
