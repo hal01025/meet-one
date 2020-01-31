@@ -34,10 +34,21 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'friendactions','action_id', 'user_id');
     }
     
+    public function follower_counts() {
+        return count($this->followers()->get());
+    }
+    
+    
+    
     public function followings()
     {
         return $this->belongsToMany(User::class, 'friendactions','user_id', 'action_id');
     }
+    
+    public function following_counts() {
+        return count($this->followings()->get());
+    }
+    
     
     public function follow($userId)
     {
@@ -82,27 +93,26 @@ class User extends Authenticatable
         return $this->belongsToMany(Community::class, 'join_community', 'user_id', 'community_id');
     }
     
-    public function join($userId)
+    public function join($communityId)
     {
 
-        $exist = $this->is_joining($userId);
+        $exist = $this->is_joining($communityId);
 
         if ($exist) {
             return false;
         } else {
-            $this->communities()->attach($userId);
+            $this->communities()->attach($communityId);
             return true;
         }
     }
     
-    public function unjoin($userId)
+    public function unjoin($communityId)
     {
 
-        $exist = $this->is_joiing($userId);
-
+        $exist = $this->is_joining($communityId);
         if ($exist) {
             
-            $this->communities()->detach($userId);
+            $this->communities()->detach($communityId);
             return true;
         } else {
             return false;

@@ -21,6 +21,7 @@
             .content-wrapper {
                 background-color:rgba(100,100,100,0.2);
                 border-radius:5px;
+                border: 1px dotted grey;
             }
         </style>
         
@@ -31,10 +32,10 @@
             </div>
             
             @include("commons.error_messages")
-            
+            @include("commons.main")
+            @include("commons.nav")
             <div class="container">
-                @include("commons.main")
-                @include("commons.nav")
+                
             
                 <div class="content-wrapper mt-3 mb-3 pt-3 pb-3">    
                     @yield("content")

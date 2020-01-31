@@ -25,20 +25,37 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 //コミュニティ操作関連
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('communities', 'CommunityController@index');
     Route::resource('communities', 'CommunityController');
 });
 
 
 //フレンド登録関連
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('followerlists', 'FolloweractionController', ['only' => ['index', 'show']]);
-    Route::resource('followinglists', 'FollowingactionController', ['only' => ['index', 'show']]);
+    Route::resource('followerlists', 'FollowerController', ['only' => ['index', 'show']]);
+    Route::resource('followinglists', 'FollowingController', ['only' => ['index', 'show']]);
     
-    /*Route::group(['prefix' => 'users/{id}'], function () {
-        Route::post('action', 'FriendactionController@store')->name('user.follow');
-        Route::delete('unaction', 'FriendactionController@destroy')->name('user.unfollow');
-        Route::get('friend', 'FriendactionController@followings')->name('users.followings');
-        Route::get('', 'FriendactionController@followers')->name('users.followers');
-    });*/
+    Route::group(['prefix' => 'users/{id}'], function () {
+        Route::post('follow', 'UserFollowController@store')->name('user.follow');
+        Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
+    });
+});
+
+//コミュニティ関連
+Route::group(['middleware' => ['auth']], function() 
+{
+   Route::group(['prefix' => 'users/{id}'], function () 
+   {
+        Route::get('register_community', 'RegisterCommunityController@index')->name('register_community.index');
+        Route::post('join', 'CommunityFollowController@store')->name('user.join');
+        Route::delete('unjoin', 'CommunityFollowController@destroy')->name('user.unjoin');
+   });
+});
+
+//インフォメーション関連
+Route::group(['middleware' => ['auth']], function() 
+{
+    Route::get('info', function() { return view('info.new-info');})->name('info.get');
+    Route::get('footer-info1', function() { return view('info.application_description');})->name('footer-info1');
+    Route::get('footer-info2', function() { return view('info.application_usage');})->name('footer-info2');
+    Route::get('footer-info3', function() { return view('info.end');})->name('footer-info3');
 });

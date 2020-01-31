@@ -2,6 +2,4 @@
 
 @section('content')
 
-@include('mypage.mypage')
-
 @endsection

@@ -8,18 +8,13 @@ use App\Community;
 
 class CommunityController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index() 
     {
         $communities = Community::orderBy('id', 'desc')->paginate(10);
         
-        return view('communities.index', ['communities' => $communities, ]);
+        return view('communities.index', ['communities' => $communities,]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -49,6 +44,8 @@ class CommunityController extends Controller
         
         $community->save();
         
+        \Auth::user()->join($community->id);
+        
         return redirect('/');
     }
 
@@ -61,8 +58,9 @@ class CommunityController extends Controller
     public function show($id)
     {
         $community = Community::find($id);
-        
-        return view('communities.show', ['community' => $community]);
+        $users = $community->members()->get();
+     
+        return view('communities.show', ['community' => $community, 'users' => $users]);
         
     }
 
@@ -74,7 +72,9 @@ class CommunityController extends Controller
      */
     public function edit($id)
     {
-        //
+        $community = Community::find($id);
+        
+        return view('communities.edit', ['community' => $community]);
     }
 
     /**
@@ -86,7 +86,12 @@ class CommunityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $community = Community::find($id);
+        $community->name = $request->name;
+        $community->description = $request->description;
+        $community->save();
+        
+        return redirect('/');
     }
 
     /**
@@ -97,6 +102,6 @@ class CommunityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $community = Community::find($id)->delete();
     }
 }

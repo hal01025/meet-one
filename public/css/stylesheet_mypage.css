@@ -1,12 +1,6 @@
 @charset "utf-8";
 
-.navbar-back {
-    margin-top: 5px;
-    background-color: rgba(164,46,0,0.7);
-    border-radius: 5px;
-    border: 2px solid rgba(0,0,0,0.7);
-    width: 100%;
-}
+
 
 .navbar-back a {
     font-family: 'Bebas Neue', cursive;
@@ -20,17 +14,17 @@
 .nav-wrapper {
     width: 30%;
     border-radius: 3px;
-    background-color:white;
-    border: 1px solid black;
-    height: 500px;
+    background-color: rgb(40,40,40);
+    border: 5px solid grey;
+    height: 700px;
 }
 
 .article-container {
     width: 60%;
     border-radius: 3px;
-    background-color:white;
+    background-color: rgb(40,40,40);
     margin-left: 10px;
-    border: 1px solid black;
+    border: 5px solid grey;
 }
 
 /*左側ボックス*/
@@ -38,8 +32,9 @@
 .greetings, .nav-name, .article-name {
     font-size: 22px;
     font-weight: 800;
-    padding: 10px 0 0 10px;
-    color: rgb(88,54,0);
+    padding: 15px 10px 10px 10px;
+    text-align: center;
+    color: white;
 }
 
 .user-name span {
@@ -50,12 +45,14 @@
     padding-top: 0;
     font-size: 22px;
     font-weight: 800;
-    padding: 0 0 0 15px;
-    color: rgb(88,54,0);
+    padding: 0 15px;
+    color: white;
+    text-align: center;
 }
 
 .friend-name {
     font-size: 18px;
+    color: grey;
 }
 
 .friend-name span {
@@ -71,16 +68,23 @@
     margin-top: 10px;
 }
 
+ul.friend-list {
+    padding: 0;
+    text-align: center;
+    color: white;
+}
 
-
-
+.follow-list a:hover {
+    color: white;
+}
 
 
 
 /*右側ボックス*/
 
 .community-wrapper {
-    border-top: 1px dotted black;
+    border-top: 1px dotted white;
+    color:white;
 }
 
 .search-box {
@@ -92,13 +96,12 @@
 }
 
 .community-name, .c-box {
-    margin-left: 15px;
+    text-align: center;
     margin-top: 10px;
 }
 
 .com-fix ul {
-    text-align: right;
-    margin-right: 5px;
+    text-align: center;
 }
 
 .com-fix li {
@@ -113,6 +116,31 @@
     font-size: 18px;
 }
 
+.community-image {
+    width: 95%;
+    border-radius: 5px;
+    display:block;
+    margin: 0 auto;
+    
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.com-fix ul {
+    padding: 0;
+}
+
+.article-container a {
+    color:grey;
+}
+
+.button input{
+    color: white;
+    background-color: rgb(60,58,58);
+}
+
+
+
 
 
 /*メディアクエリ*/
@@ -125,7 +153,6 @@
     .nav-wrapper {
     width: 90%;
     border-radius: 3px;
-    background-color:white;
     padding-left: 10px;
     margin: 0 auto;
     }
@@ -133,7 +160,6 @@
     .article-container {
     width: 90%;
     border-radius: 3px;
-    background-color:white;
     padding-left: 10px;
     margin: 0 auto;
     }

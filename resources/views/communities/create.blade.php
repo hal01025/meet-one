@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">   
-    <h3 class="text-center mt-3 mb-3"><img src="{{ secure_asset('images/') }}" id="communities-create-logo">コミュニティ作成ページ</h3>
+    <h3 class="text-center mt-3 mb-3">コミュニティ作成ページ</h3>
     {!! Form::model($community, ['route' => 'communities.store']) !!}
     <div class="text-center">
         {!! Form::label('name', 'コミュニティ名: ') !!}

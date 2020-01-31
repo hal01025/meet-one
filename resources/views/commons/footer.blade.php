@@ -11,9 +11,9 @@
                 
             <div class = "footer-list collapse navbar-collapse" id="nav-bar">
                 <ul class="navbar-nav footer-list">
-                    <li><a href="#">アプリ概要</a></li>
-                    <li><a href="#">アプリの使い方</a></li>
-                    <li><a href="#">おわりに</a></li>
+                    <li><a href="{{ route('footer-info1',[]) }}">アプリ概要</a></li>
+                    <li><a href="{{ route('footer-info2',[]) }}">アプリの使い方</a></li>
+                    <li><a href="{{ route('footer-info3',[]) }}">おわりに</a></li>
                 </ul>
             </div>
         </nav>

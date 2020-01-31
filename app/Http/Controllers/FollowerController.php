@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 
-class FolloweractionController extends Controller
+class FollowerController extends Controller
 {
     public function index () 
     {

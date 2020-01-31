@@ -6,6 +6,12 @@
         background-position: center top;
         border-radius: 5px;
     }
+    
+    @media (min-width: 1300px) {
+        .main-wrapper{
+            width: 1300px;
+            margin: 0 auto;
+    }
 </style>
 
 <main>
