@@ -54,12 +54,29 @@ Route::group(['middleware' => ['auth']], function()
 //インフォメーション関連
 Route::group(['middleware' => ['auth']], function() 
 {
-    Route::get('info', function() { return view('info.new-info');})->name('info.get');
-    Route::get('footer-info1', function() { return view('info.application_description');})->name('footer-info1');
-    Route::get('footer-info2', function() { return view('info.application_usage');})->name('footer-info2');
-    Route::get('footer-info3', function() { return view('info.end');})->name('footer-info3');
+    Route::get('footer-info1', function() { return view('information.application_description');})->name('footer-info1');
+    Route::get('footer-info2', function() { return view('information.application_usage');})->name('footer-info2');
+    Route::get('footer-info3', function() { return view('information.end');})->name('footer-info3');
 });
 
 
 //コメント関連
 Route::resource('comment', 'CommentController');
+
+
+
+//プロフィール画像関連
+Route::group(['middleware' => ['auth']], function()
+{
+    Route::get('profile', 'ProfileController@index')->name('profile.index');
+    Route::post('profile', 'ProfileController@store')->name('profile.store');
+});
+
+
+//ユーザー情報関連
+Route::group(['middleware' => ['auth']], function()
+{
+    Route::get('info', 'InfoController@index')->name('info.index');
+    Route::post('info', 'InfoController@update')->name('info.update');
+});
+

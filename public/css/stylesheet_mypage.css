@@ -6,6 +6,8 @@
     color: white;
 }
 
+
+
 .navbar-back a {
     font-family: 'Bebas Neue', cursive;
 }
@@ -25,6 +27,32 @@
     border-radius: 3px;
     margin-left: 10px;
 }
+
+/*上側ボックス*/
+.my-profile-container {
+    margin: 10px;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-container {
+    width: 25%;
+}
+
+.profile-image {
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px;
+}
+
+.self-introduction {
+    width: 65%;
+}
+
 
 /*左側ボックス*/
 

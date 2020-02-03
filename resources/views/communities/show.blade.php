@@ -49,7 +49,7 @@
                 </tr>
                 @else
                 <tr>    
-                    <td class="text-center"><a href="{{ route('followinglists.show', ['id' => $user->id])}}">{{$user->name}}</a></td>
+                    <td class="text-center"><a href="#">{{$user->name}}</a></td>
                     @if (Auth::user()->id != $user->id)
                     <td>
                     <ul>
