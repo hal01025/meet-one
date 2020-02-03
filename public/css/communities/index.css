@@ -1,0 +1,22 @@
+.community-title {
+    font-weight: 800;
+}
+
+.community-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+p {
+    font-weight: 800;
+}
+
+.community-name {
+    font-size: 20px;
+    color: white;
+}
+
+.pagination {
+    display: inline;
+    margin: 0 auto;
+}

@@ -59,3 +59,7 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('footer-info2', function() { return view('info.application_usage');})->name('footer-info2');
     Route::get('footer-info3', function() { return view('info.end');})->name('footer-info3');
 });
+
+
+//コメント関連
+Route::resource('comment', 'CommentController');

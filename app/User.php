@@ -60,7 +60,6 @@ class User extends Authenticatable
         }
         else {
             $this->followings()->attach($userId);
-            $this->counter += 1;
             return true;
             
         }
@@ -71,7 +70,7 @@ class User extends Authenticatable
         $exist = $this->is_following($userId);
         $its_me = $this->id == $userId;
         
-        if ($its_me && $exist) {
+        if (!$its_me && $exist) {
             $this->followings()->detach($userId);
             return true;
         }
@@ -123,5 +122,13 @@ class User extends Authenticatable
     {
         return $this->communities()->where('community_id', $userId)->exists();
     }
+    
+    
+    //ユーザー対コメント
+    public function comments() 
+    {
+        return $this->hasMany(Comment::class);
+    }
+ 
     
 }

@@ -1,16 +1,27 @@
 @extends('layouts.app')
 
+<head>
+    <link rel="stylesheet" href="{{ secure_asset('css/register_community/index.css') }}">
+</head>
+
 @section('content')
 
-<div class="content-wrapper-community-index">
-    <h3 class="text-center mt-3 mb-3">登録コミュニティ一覧</h3>
+<div class="container">
+    <h4 class="text-center mt-2 mb-5 community-list">登録コミュニティ一覧</h4>
     
-    @foreach($register_communities as $register_community)
-        <div class="community-wrapper1">
-            <p class="text-center">コミュニティ名: <a href="{{ route('communities.show', ['id' => $register_community->id])}}">{{$register_community->name}}</a></p>
-            <p class="text-center">コミュニティ概要: {{$register_community->description}}</p>
-        </div>
-    @endforeach
+    <table class="table table-striped mb-3">
+        <tr>
+            <th class="text-center">コミュニティ名</th>
+            <th class="text-center">コミュニティ概要</th>
+        </tr>
+        @foreach($register_communities as $register_community)
+        <tr>
+            <td class="text-center"><a href="{{ route('communities.show', ['id' => $register_community->id])}}">{{$register_community->name}}</a></td>
+            <td class="text-center">{{$register_community->description}}</td>
+        </tr>
+        @endforeach
+    </table>
+    <li class="pagination">{{ $register_communities->links('pagination::bootstrap-4') }}</li>
 </div>
 
 @endsection

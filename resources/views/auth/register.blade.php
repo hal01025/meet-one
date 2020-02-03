@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<head>
+    <link rel="stylesheet" href="{{ secure_asset('css/auth/register.css') }}">
+</head>
+
 @section('content')
     <div class="text-center">
         <h2 class="pt-3">新規登録</h2>
@@ -28,8 +32,10 @@
                     {!! Form::label('password_confirmation', 'Confirmation') !!}
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
-
-                {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block mt-5']) !!}
+                
+                <div class="text-center">
+                {!! Form::submit('Sign up', ['class' => 'btn btn-secondary mt-5']) !!}
+                </div>
             {!! Form::close() !!}
         </div>
     </div>

@@ -1,0 +1,33 @@
+.follow-button input, .unfollow-button input {
+    font-weight: 800;
+}
+
+.community-container {
+    width: 70%;
+    margin:0 auto;
+}
+
+ul {
+    padding: 0;
+}
+
+form {
+    text-align: center;
+}
+
+.community-edit {
+    text-align: center;
+}
+
+
+a.bt {
+    color: white;
+    font-weight: 800;
+}
+
+.users-name {
+    font-size: 20px;
+    color: white;
+    font-weight: 800;
+}
+

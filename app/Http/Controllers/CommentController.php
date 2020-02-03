@@ -4,17 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Community;
+use App\Comment;
 
-class CommunityController extends Controller
+class CommentController extends Controller
 {
-    public function index() 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $communities = Community::orderBy('id', 'desc')->paginate(10);
+        if (\Auth::check()){
         
-        return view('communities.index', ['communities' => $communities,]);
+        $user = \Auth::user();
+        $comments = $user->comments()->orderBy('id', 'desc')->paginate(15);
+        
+        return view('comments.index', ['comments' => $comments]);
+        }
+        
+        else 
+        {
+            return view('welcome');
+        }
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -22,10 +36,9 @@ class CommunityController extends Controller
      */
     public function create()
     {
-        $community = new Community;
+        $comment = new Comment;
         
-        return view('communities.create', ['community' => $community]);
-        
+        return view('comments.create', ['comment' => $comment]);
     }
 
     /**
@@ -36,17 +49,12 @@ class CommunityController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['name' => 'required|max:191', 'description' => 'required|max:191']);
+        $this->validate($request, ['comment' => 'required|max:191']);
         
-        $community = new Community;
-        $community->name = $request->name;
-        $community->description = $request->description;
-        
-        $community->save();
-        
-        \Auth::user()->join($community->id);
+        $request->user()->comments()->create(['comment' => $request->comment] );
         
         return redirect('/');
+        
     }
 
     /**
@@ -57,11 +65,7 @@ class CommunityController extends Controller
      */
     public function show($id)
     {
-        $community = Community::find($id);
-        $users = $community->members()->get();
-     
-        return view('communities.show', ['community' => $community, 'users' => $users]);
-        
+        //
     }
 
     /**
@@ -72,9 +76,9 @@ class CommunityController extends Controller
      */
     public function edit($id)
     {
-        $community = Community::find($id);
+        $comment = Comment::find($id);
         
-        return view('communities.edit', ['community' => $community]);
+        return view('comments.edit', ['comment' => $comment]);
     }
 
     /**
@@ -86,10 +90,12 @@ class CommunityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $community = Community::find($id);
-        $community->name = $request->name;
-        $community->description = $request->description;
-        $community->save();
+        $this->validate($request, ['comment' => 'required|max:191']);
+        
+        $comment = Comment::find($id);
+        $comment->comment = $request->comment;
+        
+        $comment->save();
         
         return redirect('/');
     }
@@ -102,8 +108,10 @@ class CommunityController extends Controller
      */
     public function destroy($id)
     {
-        $community = Community::find($id)->delete();
+        $comment = Comment::find($id);
         
-        return redirect('/');
+        $comment->delete();
+        
+        return back();
     }
 }

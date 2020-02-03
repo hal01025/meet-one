@@ -1,6 +1,10 @@
 @charset "utf-8";
 
-
+/*エラーボックス*/
+.error {
+    background-color: rgb(220,10,10);
+    color: white;
+}
 
 .navbar-back a {
     font-family: 'Bebas Neue', cursive;
@@ -14,17 +18,12 @@
 .nav-wrapper {
     width: 30%;
     border-radius: 3px;
-    background-color: rgb(40,40,40);
-    border: 5px solid grey;
-    height: 700px;
 }
 
 .article-container {
     width: 60%;
     border-radius: 3px;
-    background-color: rgb(40,40,40);
     margin-left: 10px;
-    border: 5px solid grey;
 }
 
 /*左側ボックス*/
@@ -34,7 +33,6 @@
     font-weight: 800;
     padding: 15px 10px 10px 10px;
     text-align: center;
-    color: white;
 }
 
 .user-name span {
@@ -46,18 +44,9 @@
     font-size: 22px;
     font-weight: 800;
     padding: 0 15px;
-    color: white;
     text-align: center;
 }
 
-.friend-name {
-    font-size: 18px;
-    color: grey;
-}
-
-.friend-name span {
-    font-size: 15px;
-}
 
 .nav-name {
     font-size: 18px;
@@ -68,24 +57,16 @@
     margin-top: 10px;
 }
 
-ul.friend-list {
-    padding: 0;
-    text-align: center;
+.comment-imp {
     color: white;
+    font-weight: 700;
 }
 
-.follow-list a:hover {
-    color: white;
-}
+
 
 
 
 /*右側ボックス*/
-
-.community-wrapper {
-    border-top: 1px dotted white;
-    color:white;
-}
 
 .search-box {
     margin: 5px 0 10px 15px;
@@ -101,45 +82,21 @@ ul.friend-list {
 }
 
 .com-fix ul {
-    text-align: center;
-}
-
-.com-fix li {
-    display: inline-block;
-}
-
-.community-name {
-    font-weight: 800;
-}
-
-.community-name a {
-    font-size: 18px;
-}
-
-.community-image {
-    width: 95%;
-    border-radius: 5px;
-    display:block;
-    margin: 0 auto;
-    
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-.com-fix ul {
     padding: 0;
 }
 
-.article-container a {
-    color:grey;
+th, td {
+    color:white;
 }
 
-.button input{
-    color: white;
-    background-color: rgb(60,58,58);
+td a {
+    font-weight: 800;
+    font-size: 16px;
 }
 
-
+td a:hover {
+    color: grey;
+}
 
 
 

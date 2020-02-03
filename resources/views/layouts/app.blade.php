@@ -18,10 +18,8 @@
         </head>
         
         <style>
-            .content-wrapper {
-                background-color:rgba(100,100,100,0.2);
-                border-radius:5px;
-                border: 1px dotted grey;
+            body {
+                background-color: rgba(0, 0, 0, 1);
             }
         </style>
         

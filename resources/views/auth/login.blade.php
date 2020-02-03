@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
+<head>
+    <link rel="stylesheet" href="{{ secure_asset('css/auth/login.css') }}">
+</head>
+
 @section('content')
     <div class="text-center">
-        <h2 class="mt-3 pt-2">ログイン</h2>
+        <h3 class="mt-3 mb-4 login-title">ログイン</h3>
     </div>
 
     <div class="row">
@@ -19,7 +23,7 @@
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
+                <p class="text-center pt-2">{!! Form::submit('Log in', ['class' => 'btn btn-secondary']) !!}</p>
             {!! Form::close() !!}
 
             <p class="mt-2">新規登録の方は {!! link_to_route('signup.get', '新規登録ページへ!') !!}</p>

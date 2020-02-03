@@ -1,0 +1,21 @@
+.community-container {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.community-title, label {
+    color: white;
+    font-weight: 800;
+}
+
+.form-container {
+    margin: 0 auto;
+}
+
+.button-create input{
+    background-color: grey;
+    color:white;
+    font-weight: 800;
+}
+

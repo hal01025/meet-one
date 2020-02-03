@@ -1,6 +1,6 @@
 <style>
     .main-wrapper {
-        background-image: url({{ secure_asset('images/children-817365_1920.1.jpg') }});
+        background-image: url({{ secure_asset('images/friendship-2366955_1920.jpg') }});
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center top;
@@ -15,7 +15,12 @@
 </style>
 
 <main>
+    
     <div class="main-wrapper">
-        <h2>Let's make a friend!</h2>
+    @if (Auth::check())
+        <h2>Welcome!</h2>
+    @else
+        <h2>Let's Join Communities!</h2>
+    @endif
     </div>
 </main>
