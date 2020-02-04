@@ -8,7 +8,7 @@
 @section('content')
     <div class="container">
         <h3 class="text-center mb-4">投稿したコメント一覧</h3>
-         <p class="text-center mb-5"><button class="btn btn-secondary"><a href="{{ route('comment.create') }}">コメント作成</a></button></p>
+         <p class="text-center mb-5"><button class="btn btn-secondary"><a href="{{ route('comment.create') }}" class="comment-btn">コメント作成</a></button></p>
         <table class="table table-striped">
             <tr>
                 <th class="text-center">投稿日時</th>

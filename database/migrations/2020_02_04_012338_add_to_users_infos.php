@@ -14,10 +14,10 @@ class AddToUsersInfos extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('gender');
-            $table->integer('age');
-            $table->string('hobby');
-            $table->string('intro');
+            $table->string('gender')->nullable();
+            $table->integer('age')->nullable();
+            $table->string('hobby')->nullable();
+            $table->string('intro')->nullable();
         });
     }
 
@@ -29,7 +29,10 @@ class AddToUsersInfos extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('gender');
+            $table->dropcolumn('age');
+            $table->dropcolumn('hobby');
+            $table->dropcolumn('intro');
         });
     }
 }

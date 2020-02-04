@@ -1,3 +1,44 @@
 .following-list {
     font-weight: 800;
+    border-bottom: 1px solid white;
+}
+
+
+.following-container {
+    border-bottom: 1px dotted white;
+    font-size: 18px;
+}
+
+.following-container a {
+    font-size: 20px;
+}
+
+
+
+.following-container {
+    display: flex;
+    justify-content: center;
+}
+
+.following-image-wrapper {
+    width: 30%;
+}
+
+.following-images {
+    background-color: white;
+    width: 60%;
+    border-radius: 5px;
+    padding: 5px;
+    
+}
+
+.following-info-container {
+    width: 50%;
+}
+
+
+@media (max-width: 1000px) {
+    .following-container {
+        font-size: 14px;
+    }
 }

@@ -5,19 +5,25 @@
 </head>
 
 @section('content')
-<div class="container">
-    <h4 class="text-center mb-5 follower-list">フォロワーリスト</h4>
-    <table class="table table-striped">
-        <tr>
-            <th class="text-center">ID</th>
-            <th class="text-center">ユーザー名</th>
-        </tr>
-        @foreach ($followers as $follower)
-        <tr>
-            <td class="text-center">{{ $follower->id }}</td>
-            <td class="text-center"><a href="{{ route('followerlists.show', ['id' => $follower->id ]) }}">{{ $follower->name }}</a></td>
-        </tr>    
-        @endforeach
-    </table>
-</div>
+    <h4 class="text-center pb-5 mb-3 follower-list">フォロワーリスト</h4>
+    
+@foreach ($followers as $follower)
+    <div class="follower-container pb-3 mb-3">
+        <div class="follower-image-wrapper">
+            @if (Storage::disk('local')->exists('public/profile_images/'.$follower->id.'.jpg'))
+            <img src="/storage/profile_images/{{ $follower->id }}.jpg" class="follower-images">
+            @else
+            <img src="{{ secure_asset('images/comic-2026751_1280.png') }}" class="follower-images text-center">
+            @endif
+        </div>
+        
+        <div class="follower-info-container">
+            <p class="text-center mb-3">ユーザー名: <a href="{{ route('followerlists.show', ['id' => $follower->id ]) }}">{{ $follower->name }}</a></p>
+            <p class="text-center mb-3">趣味: {{ $follower->hobby }}</p>
+            <p class="text-center mb-3">自己紹介: {{ $follower->intro }}</p>
+        </div>
+    </div>
+
+@endforeach
+    
 @endsection

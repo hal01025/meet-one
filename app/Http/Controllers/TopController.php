@@ -27,7 +27,7 @@ class TopController extends Controller
         }
             
             
-            return view('welcome', ['communities' => $communities, 'comments' => $comments, 'is_image' => $is_image, 'register_communities' => $register_communities]);
+            return view('welcome', ['communities' => $communities, 'comments' => $comments, 'is_image' => $is_image, 'register_communities' => $register_communities ]);
         }
         
         else {

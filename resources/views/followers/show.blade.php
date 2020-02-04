@@ -14,15 +14,13 @@
               @else
               <img src="{{ secure_asset('images/comic-2026751_1280.png') }}" class="profile-image">
               @endif
-              <p class="text-center">プロフィール画像</p>
             </div>
             <div class="self-introduction text-center">
-              <p class="mb-2">ユーザー名: {{ $follower->name }}<span>さん</span></p>
-
-              <p class="mb-2">年齢: {{ $follower->age }} 歳</p>
-              <p class="mb-2">性別: {{ $follower->gender }}</p>
-              <p class="mb-2">趣味: {{ $follower->hobby }}</p>
-              <p class="mb-2">自己紹介: {{ $follower->intro }}</p>
+              <p class="mb-3">ユーザー名: {{ $follower->name }}<span>さん</span></p>
+              <p class="mb-3">年齢: {{ $follower->age }} 歳</p>
+              <p class="mb-3">性別: {{ $follower->gender }}</p>
+              <p class="mb-3">趣味: {{ $follower->hobby }}</p>
+              <p class="mb-3">自己紹介: {{ $follower->intro }}</p>
               
             </div>
           </div> 

@@ -1,3 +1,43 @@
 .follower-list {
     font-weight: 800;
+    border-bottom: 1px solid white;
+}
+
+
+.follower-container {
+    border-bottom: 1px dotted white;
+    font-size: 18px;
+}
+
+.follower-container a {
+    font-size: 20px;
+}
+
+
+
+.follower-container {
+    display: flex;
+    justify-content: center;
+}
+
+.follower-image-wrapper {
+    width: 30%;
+}
+
+.follower-images {
+    background-color: white;
+    width: 60%;
+    border-radius: 5px;
+    padding: 5px;
+    
+}
+
+.follower-info-container {
+    width: 50%;
+}
+
+@media (max-width: 1000px) {
+    .follower-container {
+        font-size: 14px;
+    }
 }
