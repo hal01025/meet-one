@@ -12,7 +12,7 @@
               <!--<img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="profile-image">-->
               
               
-              {{ $post_visibility }}
+              
               <img src="{{ secure_asset($post) }}" class="profile-image">
               
               

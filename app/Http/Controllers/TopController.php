@@ -25,7 +25,7 @@ class TopController extends Controller
             $is_image = false;
             $register_communities = \Auth::user()->communities()->get();
             $post = Storage::disk('s3')->url('myprof/'.\Auth::id().'.jpg');
-            $post_visibility = Storage::disk('s3')->getVisibility('myprof/'.\Auth::id().'.jpg');
+            
             
         
         
@@ -34,7 +34,7 @@ class TopController extends Controller
         }
             
             
-            return view('welcome', ['communities' => $communities, 'comments' => $comments, 'is_image' => $is_image, 'register_communities' => $register_communities, 'post' => $post, 'post_visibility' => $post_visibility ]);
+            return view('welcome', ['communities' => $communities, 'comments' => $comments, 'is_image' => $is_image, 'register_communities' => $register_communities, 'post' => $post]);
         }
         
         else {
