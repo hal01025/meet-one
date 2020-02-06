@@ -6,8 +6,16 @@
           <div class="profile-container">
 
             <div class="image-container text-center">
-              @if ($is_image)
-              <img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="profile-image">
+              @if (Storage::disk('s3')->exists('myprof/'.Auth::id().'.jpg'))
+              
+              <!--ローカルファイルでの保存用-->
+              <!--<img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="profile-image">-->
+              
+              
+              {{ $post_visibility }}
+              <img src="{{ secure_asset($post) }}" class="profile-image">
+              
+              
               @else
               <img src="{{ secure_asset('images/comic-2026751_1280.png') }}" class="profile-image">
               @endif

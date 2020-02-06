@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
 
+use App\Image;
+
+
 class ProfileController extends Controller
 {
     public function index() 
@@ -21,10 +24,23 @@ class ProfileController extends Controller
     
     public function store(Request $request) 
     {
-        $this->validate($request, ['image' => 'required|file|image']);
+        $post = new Image;
+        
+        $image = $request->file('image');
+        
+        $path = Storage::disk('s3')->putFileAs('myprof', $image, \Auth::id().'.jpg');
+        
+        Storage::disk('s3')->setVisibility('myprof/'.\Auth::id().'.jpg', 'public');
+        
+        $post->image_path = Storage::disk('s3')->url($path);
+        
+        $post->save();
+        
+        /*$this->validate($request, ['image' => 'required|file|image']);
         
         $request->file('image')->storeAs('public/profile_images', \Auth::id().'.jpg');
         
+        */
         return redirect('/');
     }
 }
