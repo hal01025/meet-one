@@ -24,9 +24,9 @@ class TopController extends Controller
             $comments = \Auth::user()->comments()->orderBy('id', 'desc')->paginate(10);
             $is_image = false;
             $register_communities = \Auth::user()->communities()->get();
-            $post = Storage::disk('s3')->url('myprof/'.\Auth::id().'.jpg');
+            $post = 'https://storage-hal2.s3-ap-northeast-1.amazonaws.com/myprof/'.\Auth::id().'.jpg';
             
-            
+            //dd(Storage::disk('s3')->url('myprof'.\Auth::id().'.jpg'));
         
         
         if (Storage::disk('local')->exists('public/profile_images/'.\Auth::id().'.jpg')) {

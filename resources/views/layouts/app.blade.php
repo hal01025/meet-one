@@ -10,6 +10,7 @@
             <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
             <link rel="stylesheet" href ="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href ="{{ secure_asset('css/stylesheet_normalize.css') }}">
             <link rel="stylesheet" href ="{{ secure_asset('css/stylesheet_footer.css') }}">
             <link rel="stylesheet" href ="{{ secure_asset('css/stylesheet_main.css') }}">
             <link rel="stylesheet" href ="{{ secure_asset('css/stylesheet_nav.css') }}">

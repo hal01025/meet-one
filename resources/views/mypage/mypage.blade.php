@@ -3,47 +3,39 @@
       <div class="all-container">
         <div class="my-profile-container mb-5">
           <h2 class="my-profile text-center pb-4 mb-5">～My-profile～</h2>
-          <div class="profile-container">
-
-            <div class="image-container text-center">
+          <div class="profile-container row">
+            <div class="image-container text-center col-sm-5">
               @if (Storage::disk('s3')->exists('myprof/'.Auth::id().'.jpg'))
-              
-              <!--ローカルファイルでの保存用-->
-              <!--<img src="/storage/profile_images/{{ Auth::id() }}.jpg" class="profile-image">-->
-              
-              
-              
               <img src="{{ secure_asset($post) }}" class="profile-image">
-              
-              
               @else
               <img src="{{ secure_asset('images/comic-2026751_1280.png') }}" class="profile-image">
               @endif
-              <a href="{{ route('profile.index') }}" class="btn btn-secondary profile-edit mt-2">画像変更</a>
+              <a href="{{ route('profile.index') }}" class="btn btn-secondary profile-edit mt-2 mb-5">プロフィール画像変更</a>
             </div>
-            <div class="self-introduction text-center">
-              <p class="mb-3">ユーザー名: {{ Auth::user()->name }}<span>さん</span></p>
-              <p class="mb-3">年齢: {{ Auth::user()->age }} 歳</p>
-              <p class="mb-3">性別: {{ Auth::user()->gender }}</p>
-              <p class="mb-3">趣味: {{ Auth::user()->hobby }}</p>
-              <p class="mb-3">自己紹介: {{ Auth::user()->intro }}</p>
+            <div class="self-introduction col-sm-6 offset-sm-1">
+              <h3 class="mb-4">Information</h2>
+              <p class="ml-3 mb-3">ユーザー名: {{ Auth::user()->name }}<span>さん</span></p>
+              <p class="ml-3 mb-3">年齢: {{ Auth::user()->age }} 歳</p>
+              <p class="ml-3 mb-3">性別: {{ Auth::user()->gender }}</p>
+              <p class="ml-3 mb-3">趣味: {{ Auth::user()->hobby }}</p>
+              <p class="ml-3 mb-3">自己紹介: {{ Auth::user()->intro }}</p>
               
               <div class="text-center mt-3">
-                <a href="{{ route('info.index') }}" class="btn btn-primary profile-edit">プロフィール編集</a>
+                <a href="{{ route('info.index') }}" class="mt-5 btn btn-primary profile-edit">プロフィール編集</a>
               </div>
             </div>
           </div>  
         </div>
       @else
       @endif
-        <div class = "main-container">  
+        <div class = "main-container row">  
           @if (Auth::check())
-            <div class="nav-wrapper">
+            <div class="nav-wrapper col-sm-5">
               <h3 class="greetings">ようこそ！{{ Auth::user()->name }} <span>さん</span></h3>
                 <h3 class = "nav-name">フォロー/フォロワー数</h3>
-                <p class="follow text-center">あなたの現在のフォロー数は{{ Auth::user()->following_counts() }}です。</p>
-                <p class="follow text-center">あなたの現在のフォロワー数は{{ Auth::user()->follower_counts() }}です。</p>
-              <h4 class="text-center comment-imp mt-3 mb-3">コメント(新着順)</h4>      
+                <p class="follow">あなたの現在のフォロー数は{{ Auth::user()->following_counts() }}です。</p>
+                <p class="follow">あなたの現在のフォロワー数は{{ Auth::user()->follower_counts() }}です。</p>
+              <h4 class="comment-imp mt-3 mb-3">コメント(新着順)</h4>      
             <table class="table table-striped">
                 @foreach ($comments as $comment)
               <tr>
@@ -55,7 +47,7 @@
 
         
           
-            <div class = "article-container">
+            <div class = "article-container col-sm-6 offset-sm-1">
               <div class = "article-wrapper">
                 <div class="title-wrapper">
                   <h3 class="article-name mb-3">新着コミュニティ一覧</h3>

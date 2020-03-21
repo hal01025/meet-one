@@ -16,7 +16,7 @@
     </div>
 </div>
 <div class="text-center button-create">
-    {!! Form::submit('変更', ['class' => 'btn btn-secondary']) !!}
+    {!! Form::submit('コメント変更', ['class' => 'btn btn-secondary']) !!}
     {!! Form::close() !!}
 </div>
 @endsection

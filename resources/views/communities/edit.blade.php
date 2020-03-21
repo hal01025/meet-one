@@ -21,7 +21,7 @@
 </div>
     
 <div class="text-center">
-        {!! Form::submit('変更', ['class' => 'btn btn-secondary']) !!}
+        {!! Form::submit('コミュニティ情報変更', ['class' => 'btn btn-secondary']) !!}
 {!! Form::close() !!}
 </div>
 

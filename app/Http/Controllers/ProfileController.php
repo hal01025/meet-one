@@ -24,23 +24,14 @@ class ProfileController extends Controller
     
     public function store(Request $request) 
     {
-        $post = new Image;
-        
         $image = $request->file('image');
         
         $path = Storage::disk('s3')->putFileAs('myprof', $image, \Auth::id().'.jpg');
         
         Storage::disk('s3')->setVisibility('myprof/'.\Auth::id().'.jpg', 'public');
         
-        $post->image_path = Storage::disk('s3')->url($path);
+        $this->validate($request, ['image' => 'required|file|image']);
         
-        $post->save();
-        
-        /*$this->validate($request, ['image' => 'required|file|image']);
-        
-        $request->file('image')->storeAs('public/profile_images', \Auth::id().'.jpg');
-        
-        */
         return redirect('/');
     }
 }
